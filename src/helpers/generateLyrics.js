@@ -1,5 +1,5 @@
-import * as zhaoshiLenDict from './zhaoshi_len_dict.json';
-import * as zhaoshiVowelDict from './zhaoshi_vowel_dict.json';
+import zhaoshiLenDict from './zhaoshi_len_dict';
+import zhaoshiVowelDict from './zhaoshi_vowel_dict';
 
 import { wordParser } from './parser';
 
