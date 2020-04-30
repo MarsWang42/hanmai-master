@@ -18,8 +18,13 @@ export const generateLyrics = (
 
 const genWordsWithPattern = (word, pattern) => {
   const z = getZhaoshiByVowel(word);
-  return pattern.filter(p => p > 0).map(breakdown =>
-    z[breakdown][Math.floor(Math.random() * z[breakdown].length)]);
+  return pattern.filter(p => p > 0).map(breakdown =>{
+    try {
+      return z[breakdown][Math.floor(Math.random() * z[breakdown].length)];
+    } catch(e) {
+      alert('无法生成完整歌词，试着换一个关键词或长度吧～');
+    }
+  });
 }
 
 const getZhaoshiByVowel = (targetWord) => {
@@ -51,5 +56,9 @@ const getZhaoshiByVowel = (targetWord) => {
 }
 
 export const getZhaoshiByLen = (len) => {
-  return zhaoshiLenDict[len][Math.floor(Math.random() * zhaoshiLenDict[len].length)];
+  try {
+    return zhaoshiLenDict[len][Math.floor(Math.random() * zhaoshiLenDict[len].length)];
+  } catch(e) {
+    alert('无法生成完整歌词，试着换一个关键词或长度吧～');
+  }
 }
